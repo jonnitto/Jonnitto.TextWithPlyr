@@ -1,0 +1,27 @@
+'Jonnitto.TextWithPlyr:Video':
+  superTypes:
+    'Jonnitto.TextWithPlyr:BasicMixin': true
+    'Jonnitto.Plyr:Video': true
+  ui:
+    label: i18n
+
+'Jonnitto.TextWithPlyr:YouTube':
+  superTypes:
+    'Jonnitto.TextWithPlyr:BasicMixin': true
+    'Jonnitto.Plyr:YouTube': true
+  ui:
+    label: i18n
+
+'Jonnitto.TextWithPlyr:Vimeo':
+  superTypes:
+    'Jonnitto.TextWithPlyr:BasicMixin': true
+    'Jonnitto.Plyr:Vimeo': true
+  ui:
+    label: i18n
+
+'Jonnitto.TextWithPlyr:Audio':
+  superTypes:
+    'Jonnitto.TextWithPlyr:BasicMixin': true
+    'Jonnitto.Plyr:Audio': true
+  ui:
+    label: i18n

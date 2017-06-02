@@ -1,0 +1,40 @@
+{
+    "name": "jonnitto/textwithplyr",
+    "type": "neos-plugin",
+    "license": "MIT",
+    "description": "Text with plyr for Neos CMS",
+    "keywords": [
+        "flow",
+        "neos",
+        "youtube",
+        "vimeo",
+        "mp3",
+        "video",
+        "text"
+    ],
+    "authors": [
+        {
+            "name": "Jon Uhlmann",
+            "email": "me@jonnitto.ch",
+            "homepage": "https://twitter.com/jonnitto",
+            "role": "Developer"
+        }
+    ],
+    "require": {
+        "neos/neos": "~3.0 || dev-master",
+        "jonnitto/plyr": "~1.1.5",
+        "jonnitto/text": "~0.1"
+    },
+    "autoload": {
+        "psr-4": {
+            "Jonnitto\\TextWithPlyr\\": "Classes"
+        }
+    },
+    "extra": {
+        "marketplace-account": "me@jonnitto.ch",
+        "installer-name": "Jonnitto.TextWithPlyr",
+        "neos": {
+            "package-key": "Jonnitto.TextWithPlyr"
+        }
+    }
+}

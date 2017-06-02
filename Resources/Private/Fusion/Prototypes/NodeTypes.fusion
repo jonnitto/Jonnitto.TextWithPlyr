@@ -1,0 +1,15 @@
+prototype(Jonnitto.TextWithPlyr:Video) < prototype(Jonnitto.TextWithPlyr:Tag) {
+	media = Jonnitto.Plyr:Video
+}
+
+prototype(Jonnitto.TextWithPlyr:YouTube) < prototype(Jonnitto.TextWithPlyr:Tag) {
+	media = Jonnitto.Plyr:YouTube
+}
+
+prototype(Jonnitto.TextWithPlyr:Vimeo) < prototype(Jonnitto.TextWithPlyr:Tag) {
+	media = Jonnitto.Plyr:Vimeo
+}
+
+prototype(Jonnitto.TextWithPlyr:Audio) < prototype(Jonnitto.TextWithPlyr:Tag) {
+	media = Jonnitto.Plyr:Audio
+}
