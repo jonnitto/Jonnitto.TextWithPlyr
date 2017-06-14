@@ -26,7 +26,7 @@ prototype(Jonnitto.TextWithPlyr:Tag) < prototype(Fusion:Tag) {
 
 	content = Fusion:Template {
 		templatePath = 'resource://Jonnitto.TextWithPlyr/Private/Templates/Media.html'
-		@process.wrapWithRow = Fusion:Tag {
+		@process.row = Fusion:Tag {
 			@if.isLeftOrRight = ${hasRow}
 			attributes.class = Fusion:RawArray {
 				row = ${config.class.row}
@@ -38,8 +38,8 @@ prototype(Jonnitto.TextWithPlyr:Tag) < prototype(Fusion:Tag) {
 		hasRow = ${hasRow}
 
 		text = Jonnitto.Text:Editable {
-			attributes = Fusion:Attributes {
-				class = ${hasRow ? config.class.colText : false}
+			attributes.class = Fusion:RawArray {
+				col = ${hasRow ? config.class.colText : false}
 			}
 		}
 
