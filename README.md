@@ -5,7 +5,7 @@ Jonnitto.TextWithPlyr Package for Neos CMS
 [![Total Downloads](https://poser.pugx.org/jonnitto/textwithplyr/downloads)](https://packagist.org/packages/jonnitto/textwithplyr)
 [![License](https://poser.pugx.org/jonnitto/textwithplyr/license)](https://packagist.org/packages/jonnitto/textwithplyr)
 
-This package is an extension for [Jonnitto.Plyr](https://github.com/jonnitto/Jonnitto.Plyr) and [Jonnitto.Text](https://github.com/jonnitto/Jonnitto.Text). It is basically the same like [Jonnitto.TextWithPicture](https://github.com/jonnitto/Jonnitto.TextWithPicture), but with instead of the picture with the [Plyr](http://plyr.io/).
+This package is an extension for [Jonnitto.Plyr](https://github.com/jonnitto/Jonnitto.Plyr). With this plugin, you get some new nodes who include a text field into plyr.
 
 
 License
