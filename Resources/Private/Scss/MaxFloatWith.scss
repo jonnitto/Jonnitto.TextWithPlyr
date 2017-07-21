@@ -1,16 +1,16 @@
 $grid-breakpoints: (
-  xs: 0,
-  sm: 576px,
-  md: 768px,
-  lg: 992px,
-  xl: 1200px
+	xs: 0,
+	sm: 576px,
+	md: 768px,
+	lg: 992px,
+	xl: 1200px
 ) !default;
 
 $sizes: (
-  25: 25%,
-  50: 50%,
-  75: 75%,
-  100: 100%
+	25: 25%,
+	50: 50%,
+	75: 75%,
+	100: 100%
 ) !default;
 
 @function breakpoint-min($name, $breakpoints: $grid-breakpoints) {
@@ -52,8 +52,8 @@ $sizes: (
 	}
 }
 
-// Default set for .maxwith-sm-50
-@mixin create-max-float-with-single($breakpoint: sm, $size: 50, $breakpoints: $grid-breakpoints, $sizes: $sizes) {
+// Default set for .maxwith-md-50
+@mixin create-max-float-with-single($breakpoint: md, $size: 50, $breakpoints: $grid-breakpoints, $sizes: $sizes) {
 	$infix: breakpoint-infix($breakpoint, $breakpoints);
 	$width: map-get($sizes, $size);
 

@@ -1,13 +1,3 @@
-'Jonnitto.TextWithPlyr:BasicMixin':
-  abstract: true
-  superTypes:
-    'Jonnitto.TextWithPlyr:AlignmentLeftMixin': true
-    'Jonnitto.TextWithPlyr:AlignmentRightMixin': true
-    #'Jonnitto.TextWithPlyr:AlignmentFloatLeftMixin': true
-    #'Jonnitto.TextWithPlyr:AlignmentFloatRightMixin': true
-    'Jonnitto.Text:TextOne': true
-
-
 'Jonnitto.TextWithPlyr:AlignmentMixin':
   abstract: true
   properties:

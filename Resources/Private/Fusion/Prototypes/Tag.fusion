@@ -4,7 +4,7 @@ prototype(Jonnitto.TextWithPlyr:Tag) < prototype(Fusion:Tag) {
 
 	media = false
 
-	prototype(Content) {
+	prototype(Plyr:Tag) {
 		@process.contentElementWrapping >
 	}
 
@@ -37,9 +37,15 @@ prototype(Jonnitto.TextWithPlyr:Tag) < prototype(Fusion:Tag) {
 
 		hasRow = ${hasRow}
 
-		text = Jonnitto.Text:Editable {
+		text = Fusion:Tag {
+			@context.property = ${'text'}
 			attributes.class = Fusion:RawArray {
 				col = ${hasRow ? config.class.colText : false}
+			}
+			content = ${q(node).property(property)}
+			@process {
+				convertUris = ConvertUris
+				contentElementEditable = ContentElementEditable
 			}
 		}
 
@@ -59,4 +65,6 @@ prototype(Jonnitto.TextWithPlyr:Tag) < prototype(Fusion:Tag) {
 		expression = ContentElementWrapping
 		@position = 'end 999999999'
 	}
+
+	@exceptionHandler = 'Neos\\Neos\\Fusion\\ExceptionHandlers\\NodeWrappingHandler'
 }

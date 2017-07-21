@@ -22,8 +22,7 @@
     ],
     "require": {
         "neos/neos": "~3.0 || dev-master",
-        "jonnitto/plyr": "^1.1",
-        "jonnitto/text": "^0.1"
+        "jonnitto/plyr": "^1.2"
     },
     "autoload": {
         "psr-4": {

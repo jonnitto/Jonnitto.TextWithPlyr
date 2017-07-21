@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
-	<file original="" product-name="Jonnitto.TextWithPicture" source-language="en" datatype="plaintext">
+	<file original="" product-name="Jonnitto.TextWithPlyr" source-language="en" datatype="plaintext">
 		<body>
 			<trans-unit id="properties.alignment" xml:space="preserve">
-				<source>Alignment of the image</source>
+				<source>Position</source>
 			</trans-unit>
 			<trans-unit id="properties.alignment.selectBoxEditor.placeholder" xml:space="preserve">
 				<source>Default</source>
