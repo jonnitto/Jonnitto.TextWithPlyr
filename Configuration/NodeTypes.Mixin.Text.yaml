@@ -1,8 +1,13 @@
 'Jonnitto.TextWithPlyr:Text':
   abstract: true
+  search:
+    fulltext:
+      enable: true
   properties:
     text:
       type: string
+      search:
+        fulltextExtractor: '${Indexing.extractHtmlTags(value)}'
       ui:
         inlineEditable: true
         aloha:
