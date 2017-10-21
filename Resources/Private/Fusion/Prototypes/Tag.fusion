@@ -1,70 +1,70 @@
-prototype(Jonnitto.TextWithPlyr:Tag) < prototype(Fusion:Tag) {
-	config = ${Configuration.setting('Jonnitto.TextWithPlyr')}
-	align = ${q(node).property('alignment') ? q(node).property('alignment') : this.config.defaultAlignment}
+prototype(Jonnitto.TextWithPlyr:Tag) < prototype(Neos.Fusion:Tag) {
+    config = ${Configuration.setting('Jonnitto.TextWithPlyr')}
+    align = ${q(node).property('alignment') ? q(node).property('alignment') : this.config.defaultAlignment}
 
-	media = false
+    media = false
 
-	prototype(Plyr:Tag) {
-		@process.contentElementWrapping >
-	}
+    prototype(Plyr:Tag) {
+        @process.contentElementWrapping >
+    }
 
-	@context {
-		config = ${this.config}
-		alignment = ${this.align}
-		hasRow = ${this.align == 'left' || this.align == 'right' ? true : false}
-		media = ${this.media}
-	}
+    @context {
+        config = ${this.config}
+        alignment = ${this.align}
+        hasRow = ${this.align == 'left' || this.align == 'right' ? true : false}
+        media = ${this.media}
+    }
 
-	attributes {
-		class = Fusion:RawArray {
-			nodeType = ${String.toLowerCase(String.pregReplace(q(node).property('_nodeType.name'), '/[[:^alnum:]]/', '-'))}
-			container = ${config.container}
-			alignment = ${'-' + String.toLowerCase(alignment)}
-			container = ${hasRow ? config.class.hasRow : config.class.hasFloat}
-		}
-	}
+    attributes {
+        class = Neos.Fusion:RawArray {
+            nodeType = ${String.toLowerCase(String.pregReplace(q(node).property('_nodeType.name'), '/[[:^alnum:]]/', '-'))}
+            container = ${config.container}
+            alignment = ${'-' + String.toLowerCase(alignment)}
+            container = ${hasRow ? config.class.hasRow : config.class.hasFloat}
+        }
+    }
 
-	content = Fusion:Template {
-		templatePath = 'resource://Jonnitto.TextWithPlyr/Private/Templates/Media.html'
-		@process.row = Fusion:Tag {
-			@if.isLeftOrRight = ${hasRow}
-			attributes.class = Fusion:RawArray {
-				row = ${config.class.row}
-				alignment = ${config.class.alignment[alignment]}
-			}
-			content = ${value}
-		}
+    content = Neos.Fusion:Template {
+        templatePath = 'resource://Jonnitto.TextWithPlyr/Private/Templates/Media.html'
+        @process.row = Neos.Fusion:Tag {
+            @if.isLeftOrRight = ${hasRow}
+            attributes.class = Neos.Fusion:RawArray {
+                row = ${config.class.row}
+                alignment = ${config.class.alignment[alignment]}
+            }
+            content = ${value}
+        }
 
-		hasRow = ${hasRow}
+        hasRow = ${hasRow}
 
-		text = Fusion:Tag {
-			@context.property = ${'text'}
-			attributes.class = Fusion:RawArray {
-				col = ${hasRow ? config.class.colText : false}
-			}
-			content = ${q(node).property(property)}
-			@process {
-				convertUris = ConvertUris
-				contentElementEditable = ContentElementEditable
-			}
-		}
+        text = Neos.Fusion:Tag {
+            @context.property = ${'text'}
+            attributes.class = Neos.Fusion:RawArray {
+                col = ${hasRow ? config.class.colText : false}
+            }
+            content = ${q(node).property(property)}
+            @process {
+                convertUris = ConvertUris
+                contentElementEditable = ContentElementEditable
+            }
+        }
 
-		media = Fusion:Tag {
-			attributes.class = Fusion:RawArray {
-				container = false
-				col = ${hasRow ? config.class.colMedia : false}
-				float = ${hasRow ? false : config.class.alignment[alignment]}
-			}
-			content = ${media}
-		}
-	}
+        media = Neos.Fusion:Tag {
+            attributes.class = Neos.Fusion:RawArray {
+                container = false
+                col = ${hasRow ? config.class.colMedia : false}
+                float = ${hasRow ? false : config.class.alignment[alignment]}
+            }
+            content = ${media}
+        }
+    }
 
-	@ignoreProperties = ${['config', 'align', 'media']}
+    @ignoreProperties = ${['config', 'align', 'media']}
 
-	@process.contentElementWrapping {
-		expression = ContentElementWrapping
-		@position = 'end 999999999'
-	}
+    @process.contentElementWrapping {
+        expression = ContentElementWrapping
+        @position = 'end 999999999'
+    }
 
-	@exceptionHandler = 'Neos\\Neos\\Fusion\\ExceptionHandlers\\NodeWrappingHandler'
+    @exceptionHandler = 'Neos\\Neos\\Fusion\\ExceptionHandlers\\NodeWrappingHandler'
 }

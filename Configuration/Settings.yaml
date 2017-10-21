@@ -1,18 +1,21 @@
 Jonnitto:
   TextWithPlyr:
+    includeMaxFloatWithCss: true
     defaultAlignment: right
     container: false
     class:
       row: row
-      colText: 'col-12 col-md-6'
-      colMedia: 'col-12 col-md-6 align-self-center'
+      colText: 'col-md-6'
+      colMedia: 'col-md-6 align-self-center'
       hasFloat: clearfix
       hasRow: false
       alignment:
         left: flex-md-row-reverse
         right: false
-        floatLeft: 'float-md-left my-md-2 mr-md-3 maxwith-md-50'
-        floatRight: 'float-md-right my-md-2 ml-md-3 maxwith-md-50'
+        floatLeft: 'jonnitto-textwithplyr--floatleft'
+
+        #float-md-left my-md-2 mr-md-3 maxwith-md-50'
+        floatRight: 'jonnitto-textwithplyr--floatright'
 
 Neos:
   Neos:
