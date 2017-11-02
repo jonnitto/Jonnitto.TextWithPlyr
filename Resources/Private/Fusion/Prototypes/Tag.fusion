@@ -25,7 +25,7 @@ prototype(Jonnitto.TextWithPlyr:Tag) < prototype(Neos.Fusion:Tag) {
     }
 
     content = Neos.Fusion:Template {
-        templatePath = 'resource://Jonnitto.TextWithPlyr/Private/Templates/Media.html'
+        templatePath = 'resource://Jonnitto.TextWithPlyr/Private/Fusion/Prototypes/Tag.html'
         @process.row = Neos.Fusion:Tag {
             @if.isLeftOrRight = ${hasRow}
             attributes.class = Neos.Fusion:RawArray {
@@ -39,9 +39,7 @@ prototype(Jonnitto.TextWithPlyr:Tag) < prototype(Neos.Fusion:Tag) {
 
         text = Neos.Fusion:Tag {
             @context.property = ${'text'}
-            attributes.class = Neos.Fusion:RawArray {
-                col = ${hasRow ? config.class.colText : false}
-            }
+            attributes.class = ${hasRow ? config.class.colText : false}
             content = ${q(node).property(property)}
             @process {
                 convertUris = ConvertUris

@@ -13,8 +13,6 @@ Jonnitto:
         left: flex-md-row-reverse
         right: false
         floatLeft: 'jonnitto-textwithplyr--floatleft'
-
-        #float-md-left my-md-2 mr-md-3 maxwith-md-50'
         floatRight: 'jonnitto-textwithplyr--floatright'
 
 Neos:

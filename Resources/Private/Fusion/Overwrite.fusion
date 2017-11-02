@@ -1,12 +1,9 @@
-prototype(Neos.Neos:Page) {
+prototype(Page) {
     head.textWithPlyrMaxFloatWith = Neos.Fusion:Tag {
-        tagName = 'link'
-        attributes {
-            rel = 'stylesheet'
-            href = Neos.Fusion:ResourceUri {
-                path = 'resource://Jonnitto.TextWithPlyr/Public/MaxFloatWith.css'
-            }
+        @if.hasVideoOrIsBackendAndActive = ${(q(node).children('[instanceof Neos.Neos:ContentCollection]').find('[instanceof Jonnitto.TextWithPlyr:AlignmentFloatLeftMixin][alignment="floatLeft"],[instanceof Jonnitto.TextWithPlyr:AlignmentFloatRightMixin][alignment="floatRight"]').is() || node.context.inBackend) && Configuration.setting('Jonnitto.TextWithPlyr.includeMaxFloatWithCss')}
+        tagName = 'style'
+        content = Carbon.FileContent:FileContent {
+            path = 'resource://Jonnitto.TextWithPlyr/Private/Templates/InlineAssets/MaxFloatWith.css'
         }
-        @if.hasVideoOrIsBackendAndActive = ${(q(node).children('[instanceof Neos.Neos:ContentCollection]').find('[instanceof Jonnitto.TextWithPlyr:BasicMixin]').filter('[alignment="floatLeft"],[alignment="floatRight"]').is() || node.context.inBackend) && Configuration.setting('Jonnitto.TextWithPlyr.includeMaxFloatWithCss')}
     }
 }
