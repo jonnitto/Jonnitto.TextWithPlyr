@@ -4,7 +4,7 @@ prototype(Jonnitto.TextWithPlyr:Tag) < prototype(Neos.Fusion:Tag) {
 
     media = false
 
-    prototype(Plyr:Tag) {
+    prototype(Jonnitto.Plyr:Tag) {
         @process.contentElementWrapping >
     }
 
