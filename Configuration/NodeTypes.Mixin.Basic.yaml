@@ -4,5 +4,5 @@
     'Jonnitto.TextWithPlyr:Text': true
     'Jonnitto.TextWithPlyr:AlignmentLeftMixin': true
     'Jonnitto.TextWithPlyr:AlignmentRightMixin': true
-    #'Jonnitto.TextWithPlyr:AlignmentFloatLeftMixin': true
-    #'Jonnitto.TextWithPlyr:AlignmentFloatRightMixin': true
+    # 'Jonnitto.TextWithPlyr:AlignmentFloatLeftMixin': true
+    # 'Jonnitto.TextWithPlyr:AlignmentFloatRightMixin': true

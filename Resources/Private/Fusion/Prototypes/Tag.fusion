@@ -1,66 +1,63 @@
-prototype(Jonnitto.TextWithPlyr:Tag) < prototype(Neos.Fusion:Tag) {
+prototype(Jonnitto.TextWithPlyr:Tag) < prototype(Neos.Fusion:Value) {
     config = ${Configuration.setting('Jonnitto.TextWithPlyr')}
-    align = ${q(node).property('alignment') ? q(node).property('alignment') : this.config.defaultAlignment}
+    alignment = ${q(node).property('alignment')}
+    align = ${this.alignment ? this.alignment : this.config.defaultAlignment}
+    hasRow = ${this.align == 'left' || this.align == 'right' ? true : false}
+    nodeType = ${String.toLowerCase(String.pregReplace(q(node).property('_nodeType.name'), '/[[:^alnum:]]/', '-'))}
 
-    media = false
-
-    prototype(Jonnitto.Plyr:Tag) {
-        @process.contentElementWrapping >
+    media = Jonnitto.Plyr:Tag {
+        editable = false
     }
 
-    @context {
-        config = ${this.config}
-        alignment = ${this.align}
-        hasRow = ${this.align == 'left' || this.align == 'right' ? true : false}
-        media = ${this.media}
-    }
+    @context.props = ${this}
 
-    attributes {
-        class = Neos.Fusion:RawArray {
-            nodeType = ${String.toLowerCase(String.pregReplace(q(node).property('_nodeType.name'), '/[[:^alnum:]]/', '-'))}
-            container = ${config.container}
-            alignment = ${'-' + String.toLowerCase(alignment)}
-            container = ${hasRow ? config.class.hasRow : config.class.hasFloat}
-        }
-    }
-
-    content = Neos.Fusion:Template {
-        templatePath = 'resource://Jonnitto.TextWithPlyr/Private/Fusion/Prototypes/Tag.html'
-        @process.row = Neos.Fusion:Tag {
-            @if.isLeftOrRight = ${hasRow}
-            attributes.class = Neos.Fusion:RawArray {
-                row = ${config.class.row}
-                alignment = ${config.class.alignment[alignment]}
+    value = Neos.Fusion:Tag {
+        @context {
+            media = Neos.Fusion:Tag {
+                attributes.class = ${props.hasRow ? props.config.class.colMedia : props.config.class.alignment[props.align]}
+                content = ${props.media}
             }
-            content = ${value}
-        }
 
-        hasRow = ${hasRow}
-
-        text = Neos.Fusion:Tag {
-            @context.property = ${'text'}
-            attributes.class = ${hasRow ? config.class.colText : false}
-            content = ${q(node).property(property)}
-            @process {
-                convertUris = ConvertUris
-                contentElementEditable = ContentElementEditable
+            text = Neos.Fusion:Tag {
+                @context.property = ${'text'}
+                attributes.class = ${props.hasRow ? props.config.class.colText : false}
+                content = ${q(node).property(property)}
+                @process {
+                    convertUris = Neos.Neos:ConvertUris
+                    contentElementEditable = Neos.Neos:ContentElementEditable
+                }
             }
         }
 
-        media = Neos.Fusion:Tag {
-            attributes.class = Neos.Fusion:RawArray {
-                container = false
-                col = ${hasRow ? config.class.colMedia : false}
-                float = ${hasRow ? false : config.class.alignment[alignment]}
+        attributes {
+            class = Neos.Fusion:RawArray {
+                nodeType = ${props.nodeType}
+                container = ${props.config.container}
+                align = ${'-' + String.toLowerCase(props.align)}
+                container = ${props.hasRow ? props.config.class.hasRow : props.config.class.hasFloat}
             }
-            content = ${media}
+        }
+
+        content = Neos.Fusion:Case {
+            hasRow {
+                condition = ${props.hasRow}
+                renderer = Neos.Fusion:Tag {
+                    attributes.class = Neos.Fusion:RawArray {
+                        row = ${props.config.class.row}
+                        align = ${props.config.class.alignment[props.align]}
+                    }
+                    content = ${text + media}
+                }
+            }
+            hasFloat {
+                condition = true
+                renderer = ${media + text}
+            }
         }
     }
-
-    @ignoreProperties = ${['config', 'align', 'media']}
 
     @process.contentElementWrapping {
-        expression = ContentElementWrapping
+        expression = Neos.Neos:ContentElementWrapping
         @position = 'end 999999999'
     }
 
