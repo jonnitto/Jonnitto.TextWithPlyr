@@ -4,19 +4,21 @@
     "license": "MIT",
     "description": "Text with plyr for Neos CMS",
     "keywords": ["flow", "neos", "youtube", "vimeo", "mp3", "video", "text"],
-    "authors": [{
-        "name": "Jon Uhlmann",
-        "email": "me@jonnitto.ch",
-        "homepage": "https://twitter.com/jonnitto",
-        "role": "Developer"
-    }],
+    "authors": [
+        {
+            "name": "Jon Uhlmann",
+            "email": "me@jonnitto.ch",
+            "homepage": "https://twitter.com/jonnitto",
+            "role": "Developer"
+        }
+    ],
     "archive": {
         "exclude": [".editorconfig", ".gitignore", ".github", ".gitattributes", "gulp.json", "package.json", "CODE_OF_CONDUCT.md"]
     },
     "require": {
-        "neos/neos": "~3.0",
-        "jonnitto/plyr": "^2.0",
-        "carbon/filecontent": "^1.0"
+        "neos/neos": "~3.0 || ~4.0",
+        "jonnitto/plyr": "^2.2",
+        "carbon/filecontent": "^1.1"
     },
     "autoload": {
         "psr-4": {
