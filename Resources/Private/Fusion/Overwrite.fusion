@@ -1,9 +1,7 @@
 prototype(Neos.Neos:Page) {
     head.textWithPlyrMaxFloatWith = Neos.Fusion:Tag {
         tagName = 'style'
-        content = Carbon.FileContent:FileContent {
-            path = 'resource://Jonnitto.TextWithPlyr/Private/Templates/InlineAssets/MaxFloatWith.css'
-        }
+        content = ${Carbon.FileContent.path('Jonnitto.TextWithPlyr/Private/Templates/InlineAssets/MaxFloatWith.css')}
 
         @if.render = Carbon.Condition:Case {
             enabled = ${Configuration.setting('Jonnitto.TextWithPlyr.includeMaxFloatWithCss')}
