@@ -1,4 +1,4 @@
-prototype(Page) {
+prototype(Neos.Neos:Page) {
     head.textWithPlyrMaxFloatWith = Neos.Fusion:Tag {
         @if.hasVideoOrIsBackendAndActive = ${(q(node).children('[instanceof Neos.Neos:ContentCollection]').find('[instanceof Jonnitto.TextWithPlyr:AlignmentFloatLeftMixin][alignment="floatLeft"],[instanceof Jonnitto.TextWithPlyr:AlignmentFloatRightMixin][alignment="floatRight"]').is() || node.context.inBackend) && Configuration.setting('Jonnitto.TextWithPlyr.includeMaxFloatWithCss')}
         tagName = 'style'
