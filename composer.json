@@ -17,7 +17,7 @@
     },
     "require": {
         "neos/neos": "~3.0 || ~4.0",
-        "jonnitto/plyr": "^2.2",
+        "jonnitto/plyr": "^2.2 || ^3.0",
         "carbon/eel": "^1.1"
     },
     "autoload": {
